@@ -1,0 +1,452 @@
+/* 
+================================================================
+    Elina Malchinikolova – Portfolio
+    Terminal theme: dark background, monospace headings,
+    lavender accent.
+================================================================
+*/
+
+
+/* ---------- 1. Design tokens (CSS variables) ---------- */
+
+:root {
+  /* Colors */
+  --color-bg: #0E1116;          /* page background */
+  --color-surface: #161B22;     /* cards */
+  --color-border: #2A313C;      /* card and chip borders */
+  --color-divider: #222935;     /* lines between sections */
+  --color-text: #E6EDF3;        /* main text */
+  --color-text-soft: #B8C2CC;   /* paragraphs */
+  --color-text-muted: #9BA7B4;  /* dates, labels, nav */
+  --color-accent: #C9B3FF;      /* lavender accent */
+  --color-key: #F0B37E;         /* "keys" and commit hashes */
+  --color-btn-border: #3A4250;
+
+  /* Fonts */
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+
+  /* Layout */
+  --max-width: 1120px;
+  --gutter: 24px;
+  --radius-card: 10px;
+  --radius-btn: 6px;
+}
+
+
+/* ---------- 2. Base styles ---------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 24px;    /* so anchor jumps don't land flush at the edge */
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+a {
+  color: var(--color-text);
+}
+
+a:hover {
+  color: #FFFFFF;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+h1, h2, h3, p, ul, dl, dd {
+  margin: 0;
+}
+
+/* Small helper: anything with this class gets the accent color */
+.accent {
+  color: var(--color-accent);
+}
+
+
+/* ---------- 3. Header & navigation ---------- */
+
+.site-header {
+  border-bottom: 1px solid var(--color-divider);
+}
+
+.nav {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 16px var(--gutter);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.logo {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 15px;
+  text-decoration: none;
+}
+
+.nav-links {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  font-family: var(--font-mono);
+  font-size: 14px;
+}
+
+.nav-links a {
+  display: inline-block;
+  padding: 10px 12px;
+  color: var(--color-text-muted);
+  text-decoration: none;
+}
+
+.nav-links a:hover {
+  color: var(--color-accent);
+}
+
+
+/* ---------- 4. Main container ---------- */
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+
+/* ---------- 5. Hero ---------- */
+
+.hero {
+  padding: 96px 0 72px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 48px;
+}
+
+.hero-text {
+  flex: 999 1 520px;   /* takes most of the row, wraps under 520px */
+  min-width: 0;
+}
+
+.prompt {
+  margin-bottom: 16px;
+  font-family: var(--font-mono);
+  font-size: 15px;
+  color: var(--color-accent);
+}
+
+.hero-title {
+  font-family: var(--font-mono);
+  font-size: clamp(36px, 8vw, 56px);  /* shrinks on small screens */
+  line-height: 1.1;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.hero-subtitle {
+  margin-top: 24px;
+  max-width: 560px;
+  font-size: 19px;
+  color: var(--color-text-soft);
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+
+/* ---------- 6. Buttons ---------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;            /* comfortable tap target */
+  padding: 0 20px;
+  border-radius: var(--radius-btn);
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.btn-primary {
+  background: var(--color-accent);
+  color: var(--color-bg);
+}
+
+.btn-primary:hover {
+  background: #DDD0FF;
+  color: var(--color-bg);
+}
+
+.btn-secondary {
+  border: 1px solid var(--color-btn-border);
+}
+
+.btn-secondary:hover,
+.btn-outline:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.btn-outline {
+  padding: 0 16px;
+  border: 1px solid var(--color-border);
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 400;
+}
+
+
+/* ---------- 7. Status card ---------- */
+
+.status-card {
+  flex: 1 1 300px;
+  padding: 20px 24px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  font-family: var(--font-mono);
+  font-size: 14px;
+  line-height: 2;
+}
+
+.status-file {
+  color: var(--color-text-muted);
+}
+
+.status-list {
+  list-style: none;
+  padding: 0;
+}
+
+.status-key {
+  color: var(--color-key);
+}
+
+
+/* ---------- 8. Sections ---------- */
+
+.section {
+  padding: 48px 0;
+  border-top: 1px solid var(--color-divider);
+}
+
+.section-title {
+  margin-bottom: 20px;
+  font-family: var(--font-mono);
+  font-size: 22px;
+}
+
+/* When a command line follows the title, tighten the gap */
+.section-title:has(+ .section-command) {
+  margin-bottom: 8px;
+}
+
+.section-command {
+  margin-bottom: 28px;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--color-text-muted);
+}
+
+.about-text {
+  max-width: 720px;
+  font-size: 17px;
+  color: var(--color-text-soft);
+}
+
+.about-text p + p {
+  margin-top: 12px;
+}
+
+
+/* ---------- 9. Entry cards (experience, education, talks) ---------- */
+
+.entry-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.entry {
+  padding: 24px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  transition: border-color 0.15s;
+}
+
+.entry:hover {
+  border-color: var(--color-btn-border);
+}
+
+.entry-commit {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--color-key);
+}
+
+.entry-date {
+  margin-top: 4px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--color-text-muted);
+}
+
+/* Education and talks have no commit line, so the date comes first */
+.entry-date:first-child {
+  margin-top: 0;
+}
+
+.entry-title {
+  margin: 14px 0 4px;
+  font-size: 19px;
+  font-weight: 600;
+}
+
+.entry-org {
+  margin-bottom: 12px;
+  color: var(--color-text-muted);
+}
+
+.entry-points {
+  padding-left: 20px;
+  color: var(--color-text-soft);
+}
+
+.entry-points li + li {
+  margin-top: 4px;
+}
+
+.entry-text {
+  color: var(--color-text-soft);
+}
+
+
+/* ---------- 10. Skills ---------- */
+
+.skills {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.skill-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.skill-label {
+  width: 120px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--color-text-muted);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip {
+  padding: 6px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  font-size: 14px;
+}
+
+
+/* ---------- 11. Contact ---------- */
+
+.section-contact {
+  padding: 64px 0 80px;
+}
+
+.section-contact .section-title {
+  margin-bottom: 12px;
+}
+
+.contact-text {
+  margin-bottom: 24px;
+  font-size: 17px;
+  color: var(--color-text-soft);
+}
+
+.contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+
+/* ---------- 12. Footer ---------- */
+
+.site-footer {
+  border-top: 1px solid var(--color-divider);
+}
+
+.footer-text {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 24px var(--gutter);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--color-text-muted);
+}
+
+.footer-text a {
+  color: var(--color-text-muted);
+}
+
+.footer-text a:hover {
+  color: var(--color-accent);
+}
+
+
+/* ---------- 13. Small screens ---------- */
+
+@media (max-width: 600px) {
+  .hero {
+    padding: 56px 0 48px;
+    gap: 32px;
+  }
+
+  .hero-subtitle {
+    font-size: 17px;
+  }
+
+  .entry {
+    padding: 20px;
+  }
+
+  .skill-label {
+    width: 100%;   /* label sits above its chips */
+  }
+}
