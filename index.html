@@ -1,227 +1,297 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Portfolio of Elina Malchinikolova — Associate Software Engineer (Front-End) and Computer Science student at AUBG.">
-    <title>Elina Malchinikolova | Portfolio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio of Elina Malchinikolova — Associate Software Engineer (Front-End) and Computer Science student at AUBG.">
+  <title>Elina Malchinikolova | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-    <header id="top">
-        <h1>Elina Malchinikolova</h1>
-        <p class="tagline">Front-End Software Engineer &middot; Computer Science &amp; Business student</p>
-        <nav>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#talks">Talks</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+  <header id="top" class="site-header">
+    <nav class="nav">
+      <a href="#top" class="logo">elina<span class="accent">@</span>portfolio:~$</a>
+      <ul class="nav-links">
+        <li><a href="#about">about</a></li>
+        <li><a href="#experience">experience</a></li>
+        <li><a href="#education">education</a></li>
+        <li><a href="#talks">talks</a></li>
+        <li><a href="#skills">skills</a></li>
+        <li><a href="#contact">contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <main>
+  <main class="container">
 
-        <section id="about">
-            <h2>About me</h2>
-            <p>
-                Hi! I'm Elina, an Associate Software Engineer on the front-end team of the
-                Daily Fantasy Sports vertical at DraftKings in Sofia, and a Computer Science
-                &amp; Business Administration student at the American University in Bulgaria.
-            </p>
-            <p>
-                I enjoy building things for the web with React and TypeScript, and I'm just as
-                happy working in legacy ASP.NET MVC code. Outside of work I like to automate
-                everyday tasks, experiment with locally-run AI models, and tinker with PC hardware.
-            </p>
-        </section>
+    <section class="hero">
+      <div class="hero-text">
+        <p class="prompt">$ whoami</p>
+        <h1 class="hero-title">Elina<br>Malchinikolova</h1>
+        <p class="hero-subtitle">
+          Associate Software Engineer (Front-End) at DraftKings. Computer Science &amp;
+          Business student at AUBG. I build for the web and automate everything else.
+        </p>
+        <div class="hero-actions">
+          <a href="#experience" class="btn btn-primary">View experience</a>
+          <a href="#contact" class="btn btn-secondary">Get in touch</a>
+        </div>
+      </div>
 
-        <section id="experience">
-            <h2>Experience</h2>
+      <aside class="status-card" aria-label="Quick facts">
+        <p class="status-file">~/status.json</p>
+        <ul class="status-list">
+          <li><span class="status-key">location</span>: Sofia, Bulgaria</li>
+          <li><span class="status-key">role</span>: Front-End @ DraftKings</li>
+          <li><span class="status-key">studying</span>: AUBG, class of 2029</li>
+          <li><span class="status-key">gpa</span>: 4.0 / 4.0</li>
+          <li><span class="status-key">stack</span>: React · TS · C#</li>
+        </ul>
+      </aside>
+    </section>
 
-            <article class="entry">
-                <h3>Associate Software Engineer (Front-End)</h3>
-                <p class="meta">DraftKings &ndash; Daily Fantasy Sports &middot; Sofia, Bulgaria &middot; Sept 2026
-                    &ndash; present</p>
-                <ul>
-                    <li>Selected to pilot the Datadog runbook-as-code standard on a front-end service</li>
-                    <li>Diagnosing and fixing production errors</li>
-                    <li>Maintaining the n8n workflow that creates and updates Release and Change Management Jira tickets
-                    </li>
-                    <li>Delivering features and bug fixes across the team's codebase</li>
-                </ul>
-            </article>
+    <section id="about" class="section">
+      <h2 class="section-title"><span class="accent" aria-hidden="true">#</span> about</h2>
+      <div class="about-text">
+        <p>
+          Hi! I'm Elina, an Associate Software Engineer on the front-end team of the
+          Daily Fantasy Sports vertical at DraftKings in Sofia, and a Computer Science
+          &amp; Business Administration student at the American University in Bulgaria.
+        </p>
+        <p>
+          I enjoy building things for the web with React and TypeScript, and I'm just as
+          happy working in legacy ASP.NET MVC code. Outside of work I like to automate
+          everyday tasks, experiment with locally-run AI models, and tinker with PC hardware.
+        </p>
+      </div>
+    </section>
 
-            <article class="entry">
-                <h3>Software Engineering Intern (Front-End)</h3>
-                <p class="meta">DraftKings &ndash; Daily Fantasy Sports &middot; Sofia, Bulgaria &middot; June 2026
-                    &ndash; Aug 2026</p>
-                <ul>
-                    <li>Worked in an agile team, using Jira and the team's CI/CD pipelines</li>
-                    <li>Delivered features and bug fixes in both ASP.NET MVC (C#, Razor, jQuery) and React/TypeScript
-                    </li>
-                    <li>Investigated production errors through Datadog and implemented fixes</li>
-                    <li>Co-built an n8n workflow that automates the compliance Jira tickets created with every release
-                    </li>
-                    <li>Wrote detailed documentation for every task to support knowledge transfer</li>
-                    <li>Converted to a full-time role after the internship</li>
-                </ul>
-            </article>
+    <section id="experience" class="section">
+      <h2 class="section-title"><span class="accent" aria-hidden="true">#</span> experience</h2>
+      <p class="section-command">$ git log --career</p>
 
-            <article class="entry">
-                <h3>Development Team Member</h3>
-                <p class="meta">The Hub at AUBG &middot; Blagoevgrad, Bulgaria &middot; Sept 2025 &ndash; May 2026</p>
-                <ul>
-                    <li>Front-end development on a real, working single-page application</li>
-                    <li>Sharpened skills in Git, React, and TypeScript</li>
-                </ul>
-            </article>
+      <div class="entry-list">
+        <article class="entry">
+          <p class="entry-commit">commit 9e4c2a1 <span class="accent">(HEAD -&gt; main)</span></p>
+          <p class="entry-date">Date: Sept 2026 – present · Sofia, Bulgaria</p>
+          <h3 class="entry-title">Associate Software Engineer (Front-End)</h3>
+          <p class="entry-org">DraftKings – Daily Fantasy Sports</p>
+          <ul class="entry-points">
+            <li>Selected to pilot the Datadog runbook-as-code standard on a front-end service</li>
+            <li>Diagnosing and fixing production errors</li>
+            <li>Maintaining the n8n workflow that creates and updates Release and Change Management Jira tickets</li>
+            <li>Delivering features and bug fixes across the team's codebase</li>
+          </ul>
+        </article>
 
-            <article class="entry">
-                <h3>Software Engineering Graduate</h3>
-                <p class="meta">GrowIT Academy &middot; Pleven, Bulgaria &middot; Mar 2025 &ndash; June 2025</p>
-                <ul>
-                    <li>Graduated from the 4th edition, focused on JavaScript, TypeScript, React, and Firebase</li>
-                    <li>Built a fully functional web application in a 3-person team as a final project</li>
-                </ul>
-            </article>
+        <article class="entry">
+          <p class="entry-commit">commit 5b17f08</p>
+          <p class="entry-date">Date: June 2026 – Aug 2026 · Sofia, Bulgaria</p>
+          <h3 class="entry-title">Software Engineering Intern (Front-End)</h3>
+          <p class="entry-org">DraftKings – Daily Fantasy Sports</p>
+          <ul class="entry-points">
+            <li>Worked in an agile team, using Jira and the team's CI/CD pipelines</li>
+            <li>Delivered features and bug fixes in both ASP.NET MVC (C#, Razor, jQuery) and React/TypeScript</li>
+            <li>Investigated production errors through Datadog and implemented fixes</li>
+            <li>Co-built an n8n workflow that automates the compliance Jira tickets created with every release</li>
+            <li>Wrote detailed documentation for every task to support knowledge transfer</li>
+            <li>Converted to a full-time role after the internship</li>
+          </ul>
+        </article>
 
-            <article class="entry">
-                <h3>Programming Student</h3>
-                <p class="meta">SoftUni &middot; Remote &middot; Jan 2022 &ndash; Apr 2025</p>
-                <ul>
-                    <li>Completed 12 courses, from Programming Basics with Python to AI Adoption, most with a 6.00/6.00
-                        grade</li>
-                    <li>Topics included Python (OOP, ORM, Web), PostgreSQL, HTML &amp; CSS, JS Front-End, and Prompt
-                        Engineering</li>
-                </ul>
-            </article>
+        <article class="entry">
+          <p class="entry-commit">commit 2d8a6e3</p>
+          <p class="entry-date">Date: Sept 2025 – May 2026 · Blagoevgrad, Bulgaria</p>
+          <h3 class="entry-title">Development Team Member</h3>
+          <p class="entry-org">The Hub at AUBG</p>
+          <ul class="entry-points">
+            <li>Front-end development on a real, working single-page application</li>
+            <li>Sharpened skills in Git, React, and TypeScript</li>
+          </ul>
+        </article>
 
-            <article class="entry">
-                <h3>Marketing Department Member</h3>
-                <p class="meta">Polygon at AUBG &middot; Blagoevgrad, Bulgaria &middot; Sept 2025 &ndash; May 2026</p>
-                <ul>
-                    <li>Designed promotional posters for club events in Canva</li>
-                </ul>
-            </article>
+        <article class="entry">
+          <p class="entry-commit">commit 7c41b9f</p>
+          <p class="entry-date">Date: Mar 2025 – June 2025 · Pleven, Bulgaria</p>
+          <h3 class="entry-title">Software Engineering Graduate</h3>
+          <p class="entry-org">GrowIT Academy</p>
+          <ul class="entry-points">
+            <li>Graduated from the 4th edition, focused on JavaScript, TypeScript, React, and Firebase</li>
+            <li>Built a fully functional web application in a 3-person team as a final project</li>
+          </ul>
+        </article>
 
-            <article class="entry">
-                <h3>Contributing Writer &amp; Editor</h3>
-                <p class="meta">Ivan Vazov High School Newspaper &middot; Pleven, Bulgaria &middot; Sept 2018 &ndash;
-                    June 2025</p>
-                <ul>
-                    <li>Published multiple essays in the school newspaper</li>
-                    <li>Part of the editorial team that received the Razgrad Municipality award for Journalism (March
-                        2024)</li>
-                </ul>
-            </article>
-        </section>
+        <article class="entry">
+          <p class="entry-commit">commit e08d3a5</p>
+          <p class="entry-date">Date: Jan 2022 – Apr 2025 · Remote</p>
+          <h3 class="entry-title">Programming Student</h3>
+          <p class="entry-org">SoftUni</p>
+          <ul class="entry-points">
+            <li>Completed 12 courses, from Programming Basics with Python to AI Adoption, most with a 6.00/6.00 grade</li>
+            <li>Topics included Python (OOP, ORM, Web), PostgreSQL, HTML &amp; CSS, JS Front-End, and Prompt Engineering</li>
+          </ul>
+        </article>
 
-        <section id="education">
-            <h2>Education</h2>
+        <article class="entry">
+          <p class="entry-commit">commit 3fa61c2</p>
+          <p class="entry-date">Date: Sept 2025 – May 2026 · Blagoevgrad, Bulgaria</p>
+          <h3 class="entry-title">Marketing Department Member</h3>
+          <p class="entry-org">Polygon at AUBG</p>
+          <ul class="entry-points">
+            <li>Designed promotional posters for club events in Canva</li>
+          </ul>
+        </article>
 
-            <article class="entry">
-                <h3>BA, Computer Science &amp; Business Administration</h3>
-                <p class="meta">American University in Bulgaria &middot; Blagoevgrad &middot; Sept 2025 &ndash; 2029
-                    (expected)</p>
-                <ul>
-                    <li>AUBG Distinguished Scholarship (100% tuition coverage)</li>
-                    <li>Dean's List (GPA 4.0/4.0), Fall 2025 and Spring 2026</li>
-                    <li>President's List (GPA 4.0/4.0), Spring 2026</li>
-                    <li>Member of The Hub (coding), ACM-W (tech research), and Polygon (math) clubs</li>
-                </ul>
-            </article>
+        <article class="entry">
+          <p class="entry-commit">commit b72e04d</p>
+          <p class="entry-date">Date: Sept 2018 – June 2025 · Pleven, Bulgaria</p>
+          <h3 class="entry-title">Contributing Writer &amp; Editor</h3>
+          <p class="entry-org">Ivan Vazov High School Newspaper</p>
+          <ul class="entry-points">
+            <li>Published multiple essays in the school newspaper</li>
+            <li>Part of the editorial team that received the Razgrad Municipality award for Journalism (March 2024)</li>
+          </ul>
+        </article>
+      </div>
+    </section>
 
-            <article class="entry">
-                <h3>Software and Hardware Sciences Profile</h3>
-                <p class="meta">Ivan Vazov High School &middot; Pleven &middot; Sept 2018 &ndash; May 2025</p>
-                <ul>
-                    <li>GPA 6.00/6.00</li>
-                    <li>National Diploma Award from the Bulgarian Ministry of Education (2025)</li>
-                    <li>National exams: Informatics 96.5/100, Bulgarian Language and Literature 100/100</li>
-                </ul>
-            </article>
-        </section>
+    <section id="education" class="section">
+      <h2 class="section-title"><span class="accent" aria-hidden="true">#</span> education</h2>
+      <p class="section-command">$ cat education.md</p>
 
-        <section id="talks">
-            <h2>Conferences &amp; Presentations</h2>
+      <div class="entry-list">
+        <article class="entry">
+          <p class="entry-date">Sept 2025 – 2029 (expected) · Blagoevgrad, Bulgaria</p>
+          <h3 class="entry-title">BA, Computer Science &amp; Business Administration</h3>
+          <p class="entry-org">American University in Bulgaria</p>
+          <ul class="entry-points">
+            <li>AUBG Distinguished Scholarship (100% tuition coverage)</li>
+            <li>Dean's List (GPA 4.0/4.0), Fall 2025 and Spring 2026</li>
+            <li>President's List (GPA 4.0/4.0), Spring 2026</li>
+            <li>Member of The Hub (coding), ACM-W (tech research), and Polygon (math) clubs</li>
+          </ul>
+        </article>
 
-            <article class="entry">
-                <h3>Vienna One World Vision Conference</h3>
-                <p class="meta">January 2026</p>
-                <p>
-                    Presented on accessible automation: a Python script for batch converting
-                    .heic images to .png, an Apple Shortcuts workflow for automatic background
-                    removal, and a Make.com + Notion automation for organizing saved X posts.
-                </p>
-            </article>
+        <article class="entry">
+          <p class="entry-date">Sept 2018 – May 2025 · Pleven, Bulgaria</p>
+          <h3 class="entry-title">Software and Hardware Sciences Profile</h3>
+          <p class="entry-org">Ivan Vazov High School</p>
+          <ul class="entry-points">
+            <li>GPA 6.00/6.00</li>
+            <li>National Diploma Award from the Bulgarian Ministry of Education (2025)</li>
+            <li>National exams: Informatics 96.5/100, Bulgarian Language and Literature 100/100</li>
+          </ul>
+        </article>
+      </div>
+    </section>
 
-            <article class="entry">
-                <h3>Physics and the World of Technology Youth Scientific Session</h3>
-                <p class="meta">June 2024</p>
-                <p>
-                    Presented an original Blender render at the session organized by the Union of
-                    Physicists in Bulgaria and the Evrika Foundation.
-                </p>
-            </article>
+    <section id="talks" class="section">
+      <h2 class="section-title"><span class="accent" aria-hidden="true">#</span> talks</h2>
+      <p class="section-command">$ ls ./talks</p>
 
-            <article class="entry">
-                <h3>DiSTARS Communication &amp; Teacher Training Event</h3>
-                <p class="meta">April 2023</p>
-                <p>Created a story about space exploration as part of a 4-member team.</p>
-            </article>
-        </section>
+      <div class="entry-list">
+        <article class="entry">
+          <p class="entry-date">Jan 2026 · Vienna, Austria</p>
+          <h3 class="entry-title">Vienna One World Vision Conference</h3>
+          <p class="entry-text">
+            Presented on accessible automation: a Python script for batch converting
+            .heic images to .png, an Apple Shortcuts workflow for automatic background
+            removal, and a Make.com + Notion automation for organizing saved X posts.
+          </p>
+        </article>
 
-        <section id="skills">
-            <h2>Skills</h2>
-            <dl>
-                <dt>Languages</dt>
-                <dd>Python, C#, JavaScript, TypeScript, SQL, HTML &amp; CSS</dd>
+        <article class="entry">
+          <p class="entry-date">June 2024</p>
+          <h3 class="entry-title">Physics and the World of Technology Youth Scientific Session</h3>
+          <p class="entry-text">
+            Presented an original Blender render at the session organized by the Union of
+            Physicists in Bulgaria and the Evrika Foundation.
+          </p>
+        </article>
 
-                <dt>Frameworks &amp; styling</dt>
-                <dd>React, ASP.NET MVC, Tailwind CSS, SCSS</dd>
+        <article class="entry">
+          <p class="entry-date">Apr 2023</p>
+          <h3 class="entry-title">DiSTARS Communication &amp; Teacher Training Event</h3>
+          <p class="entry-text">Created a story about space exploration as part of a 4-member team.</p>
+        </article>
+      </div>
+    </section>
 
-                <dt>Databases</dt>
-                <dd>PostgreSQL, Firebase</dd>
+    <section id="skills" class="section">
+      <h2 class="section-title"><span class="accent" aria-hidden="true">#</span> skills</h2>
+      <dl class="skills">
+        <div class="skill-group">
+          <dt class="skill-label">languages</dt>
+          <dd class="chips">
+            <span class="chip">TypeScript</span>
+            <span class="chip">JavaScript</span>
+            <span class="chip">Python</span>
+            <span class="chip">C#</span>
+            <span class="chip">SQL</span>
+            <span class="chip">HTML &amp; CSS</span>
+          </dd>
+        </div>
+        <div class="skill-group">
+          <dt class="skill-label">frameworks</dt>
+          <dd class="chips">
+            <span class="chip">React</span>
+            <span class="chip">ASP.NET MVC</span>
+            <span class="chip">Tailwind CSS</span>
+            <span class="chip">SCSS</span>
+          </dd>
+        </div>
+        <div class="skill-group">
+          <dt class="skill-label">tools</dt>
+          <dd class="chips">
+            <span class="chip">Git</span>
+            <span class="chip">Datadog</span>
+            <span class="chip">Jira</span>
+            <span class="chip">n8n</span>
+            <span class="chip">Make.com</span>
+            <span class="chip">Firebase</span>
+            <span class="chip">PostgreSQL</span>
+          </dd>
+        </div>
+        <div class="skill-group">
+          <dt class="skill-label">spoken</dt>
+          <dd class="chips">
+            <span class="chip">Bulgarian (native)</span>
+            <span class="chip">English (C2)</span>
+          </dd>
+        </div>
+        <div class="skill-group">
+          <dt class="skill-label">interests</dt>
+          <dd class="chips">
+            <span class="chip">Local AI</span>
+            <span class="chip">Automation</span>
+            <span class="chip">Coding agents</span>
+            <span class="chip">PC hardware</span>
+          </dd>
+        </div>
+      </dl>
+    </section>
 
-                <dt>Tools &amp; platforms</dt>
-                <dd>Git, GitHub, Bitbucket, Jira, Datadog, n8n, Make.com</dd>
+    <section id="contact" class="section section-contact">
+      <h2 class="section-title"><span class="accent" aria-hidden="true">#</span> contact</h2>
+      <p class="contact-text">Open to chatting about front-end, automation, or local AI.</p>
+      <div class="contact-links">
+        <a href="mailto:elina.malchinikolova@proton.me" class="btn btn-outline">email</a>
+        <a href="https://github.com/El-ina" target="_blank" rel="noopener" class="btn btn-outline">github</a>
+        <a href="https://www.linkedin.com/in/elina-malchinikolova" target="_blank" rel="noopener" class="btn btn-outline">linkedin</a>
+      </div>
+    </section>
 
-                <dt>Spoken languages</dt>
-                <dd>Bulgarian (native), English (C2 &ndash; Duolingo English Test 155/160)</dd>
-            </dl>
+  </main>
 
-            <h3>Interests</h3>
-            <ul>
-                <li>Locally-run AI (LLMs and image generation models)</li>
-                <li>Automation with n8n, Make.com, and IFTTT</li>
-                <li>Coding agents</li>
-                <li>PC hardware</li>
-            </ul>
-        </section>
-
-        <section id="contact">
-            <h2>Contact</h2>
-            <ul>
-                <li>Email: <a href="mailto:elina.malchinikolova@proton.me">elina.malchinikolova@proton.me</a></li>
-                <li>GitHub: <a href="https://github.com/El-ina" target="_blank" rel="noopener">El-ina</a></li>
-                <li>LinkedIn: <a href="https://www.linkedin.com/in/elina-malchinikolova" target="_blank"
-                        rel="noopener">elina-malchinikolova</a></li>
-            </ul>
-        </section>
-
-    </main>
-
-    <footer>
-        <p>&copy; 2026 Elina Malchinikolova &middot; <a href="#top">Back to top</a></p>
-    </footer>
+  <footer class="site-footer">
+    <p class="footer-text">
+      &copy; 2026 Elina Malchinikolova · built with HTML, CSS and daily commits ·
+    </p>
+  </footer>
 
 </body>
-
 </html>
