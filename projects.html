@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Projects by Elina Malchinikolova — web apps, automations, and experiments.">
+  <meta name="theme-color" content="#0E1116">
+  <title>Projects | Elina Malchinikolova</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header id="top" class="site-header">
+    <nav class="nav">
+      <a href="index.html" class="logo">elina<span class="accent">@</span>portfolio:~$</a>
+      <ul class="nav-links">
+        <li><a href="index.html#about">about</a></li>
+        <li><a href="index.html#experience">experience</a></li>
+        <li><a href="index.html#education">education</a></li>
+        <li><a href="index.html#talks">talks</a></li>
+        <li><a href="index.html#skills">skills</a></li>
+        <li><a href="projects.html" aria-current="page">projects</a></li>
+        <li><a href="index.html#contact">contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+
+    <section class="page-intro">
+      <p class="prompt">$ cd ~/projects &amp;&amp; ls</p>
+      <h1 class="page-title">Projects</h1>
+      <p class="hero-subtitle">
+        Things I've built: web apps, automations that save me time, and a few experiments.
+      </p>
+    </section>
+
+    <section class="section" aria-label="Project list">
+      <div class="project-grid">
+
+        <article class="project-card">
+          <p class="project-path">~/projects/portfolio</p>
+          <h2 class="project-title">This portfolio</h2>
+          <p class="project-text">
+            A hand-written HTML and CSS site with a terminal theme, built one commit a day
+            as part of a Git course and hosted on GitHub Pages.
+          </p>
+          <ul class="tags" aria-label="Technologies">
+            <li class="tag">HTML</li>
+            <li class="tag">CSS</li>
+            <li class="tag">Git</li>
+            <li class="tag">GitHub Pages</li>
+          </ul>
+          <div class="project-links">
+            <a href="https://github.com/El-ina/El-ina.github.io" target="_blank" rel="noopener">source &rarr;</a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <p class="project-path">~/projects/growit-final</p>
+          <h2 class="project-title">GrowIT Academy final project</h2>
+          <p class="project-text">
+            A fully functional web application built in a team of three as the final
+            project of GrowIT Academy's 4th edition.
+          </p>
+          <ul class="tags" aria-label="Technologies">
+            <li class="tag">React</li>
+            <li class="tag">TypeScript</li>
+            <li class="tag">Firebase</li>
+          </ul>
+          <!-- TODO: add links to the repo and live demo -->
+        </article>
+
+        <article class="project-card">
+          <p class="project-path">~/projects/release-tickets</p>
+          <h2 class="project-title">Release ticket automation</h2>
+          <p class="project-text">
+            Co-built an n8n workflow at DraftKings that creates and updates the Release and
+            Change Management Jira tickets required with every release. Internal tool, so
+            there's no public code.
+          </p>
+          <ul class="tags" aria-label="Technologies">
+            <li class="tag">n8n</li>
+            <li class="tag">Jira</li>
+          </ul>
+        </article>
+
+        <article class="project-card">
+          <p class="project-path">~/scripts/heic-to-png.py</p>
+          <h2 class="project-title">HEIC to PNG batch converter</h2>
+          <p class="project-text">
+            A Python script that converts a whole folder of iPhone .heic photos to .png in
+            one go. Presented at the Vienna One World Vision Conference.
+          </p>
+          <ul class="tags" aria-label="Technologies">
+            <li class="tag">Python</li>
+          </ul>
+          <!-- TODO: add a link if the script is on GitHub -->
+        </article>
+
+        <article class="project-card">
+          <p class="project-path">~/automations/remove-bg</p>
+          <h2 class="project-title">Background removal shortcut</h2>
+          <p class="project-text">
+            An Apple Shortcuts workflow that removes the background from an image
+            automatically, with no editing app needed.
+          </p>
+          <ul class="tags" aria-label="Technologies">
+            <li class="tag">Apple Shortcuts</li>
+          </ul>
+        </article>
+
+        <article class="project-card">
+          <p class="project-path">~/automations/x-to-notion</p>
+          <h2 class="project-title">Saved posts organizer</h2>
+          <p class="project-text">
+            A Make.com scenario that sends posts I save on X into a Notion database, so
+            they're sorted and searchable instead of lost in bookmarks.
+          </p>
+          <ul class="tags" aria-label="Technologies">
+            <li class="tag">Make.com</li>
+            <li class="tag">Notion</li>
+          </ul>
+        </article>
+
+        <article class="project-card">
+          <p class="project-path">~/renders/blender</p>
+          <h2 class="project-title">Original Blender render</h2>
+          <p class="project-text">
+            A 3D render presented at the Physics and the World of Technology youth
+            scientific session, organized by the Union of Physicists in Bulgaria and
+            the Evrika Foundation.
+          </p>
+          <ul class="tags" aria-label="Technologies">
+            <li class="tag">Blender</li>
+          </ul>
+          <!-- TODO: add an image of the render -->
+        </article>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p class="footer-text">
+      &copy; 2026 Elina Malchinikolova · built with HTML, CSS and daily commits ·
+      <a href="#top">back to top</a>
+    </p>
+  </footer>
+
+</body>
+</html>
