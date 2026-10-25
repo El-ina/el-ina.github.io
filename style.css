@@ -1,10 +1,8 @@
-/* 
-================================================================
-    Elina Malchinikolova – Portfolio
-    Terminal theme: dark background, monospace headings,
-    lavender accent.
-================================================================
-*/
+/* ==========================================================
+   Elina Malchinikolova – Portfolio
+   Terminal theme: dark background, monospace headings,
+   lavender accent.
+   ========================================================== */
 
 
 /* ---------- 1. Design tokens (CSS variables) ---------- */
@@ -121,6 +119,11 @@ h1, h2, h3, p, ul, dl, dd {
 }
 
 .nav-links a:hover {
+  color: var(--color-accent);
+}
+
+/* The link for the page you're currently on */
+.nav-links a[aria-current="page"] {
   color: var(--color-accent);
 }
 
@@ -430,7 +433,89 @@ h1, h2, h3, p, ul, dl, dd {
 }
 
 
-/* ---------- 13. Small screens ---------- */
+/* ---------- 13. Projects page ---------- */
+
+.page-intro {
+  padding: 80px 0 48px;
+}
+
+.page-title {
+  font-family: var(--font-mono);
+  font-size: clamp(36px, 8vw, 56px);
+  line-height: 1.1;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* Cards fill as many 300px+ columns as fit, then wrap */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 24px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  transition: border-color 0.15s, transform 0.15s;
+}
+
+.project-card:hover {
+  border-color: var(--color-accent);
+  transform: translateY(-2px);
+}
+
+.project-path {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--color-key);
+}
+
+.project-title {
+  font-size: 19px;
+  font-weight: 600;
+}
+
+.project-text {
+  color: var(--color-text-soft);
+  flex-grow: 1;   /* pushes tags and links to the bottom of the card */
+}
+
+.tags {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tag {
+  padding: 2px 10px;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+
+.project-links a {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+.project-links a:hover {
+  text-decoration: underline;
+}
+
+
+/* ---------- 14. Small screens ---------- */
 
 @media (max-width: 600px) {
   .hero {
@@ -448,5 +533,13 @@ h1, h2, h3, p, ul, dl, dd {
 
   .skill-label {
     width: 100%;   /* label sits above its chips */
+  }
+
+  .page-intro {
+    padding: 56px 0 32px;
+  }
+
+  .project-grid {
+    grid-template-columns: 1fr;
   }
 }
