@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0E1116">
+  <title>Page not found | Elina Malchinikolova</title>
+  <!-- Absolute paths (starting with /) because this page can be shown at any URL -->
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/script.js"></script>
+</head>
+<body>
+
+  <header id="top" class="site-header">
+    <nav class="nav">
+      <a href="/index.html" class="logo">elina<span class="accent">@</span>portfolio:~$</a>
+      <button type="button" class="theme-toggle" aria-label="Switch to light theme">theme: dark</button>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="page-intro">
+      <p class="prompt">$ cd ./this-page</p>
+      <p class="section-command">bash: cd: no such file or directory</p>
+      <h1 class="page-title">404</h1>
+      <p class="hero-subtitle">
+        This page doesn't exist, or it moved in a recent commit.
+      </p>
+      <div class="hero-actions">
+        <a href="/index.html" class="btn btn-primary">cd ~</a>
+        <a href="/projects.html" class="btn btn-secondary">See projects</a>
+      </div>
+    </section>
+  </main>
+
+</body>
+</html>
