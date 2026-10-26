@@ -198,7 +198,7 @@ h1, h2, h3, p, ul, dl, dd {
 }
 
 .hero-text {
-  flex: 999 1 520px;   /* takes most of the row, wraps under 520px */
+  flex: 999 1 480px;   /* takes the rest of the row, wraps under 480px */
   min-width: 0;
 }
 
@@ -277,7 +277,7 @@ h1, h2, h3, p, ul, dl, dd {
 /* ---------- 7. Status card ---------- */
 
 .status-card {
-  flex: 1 1 300px;
+  flex: 1 1 400px;     /* starts at 400px wide, full width on small screens */
   padding: 20px 24px;
   background: var(--color-surface);
   border: 1px solid var(--color-border);
