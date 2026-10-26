@@ -19,6 +19,9 @@
   --color-accent: #C9B3FF;      /* lavender accent */
   --color-key: #F0B37E;         /* "keys" and commit hashes */
   --color-btn-border: #3A4250;
+  --color-text-strong: #FFFFFF; /* link hover */
+  --color-accent-hover: #DDD0FF;
+  --color-on-accent: #0E1116;   /* text on accent-colored buttons */
 
   /* Fonts */
   --font-mono: 'JetBrains Mono', ui-monospace, monospace;
@@ -29,6 +32,28 @@
   --gutter: 24px;
   --radius-card: 10px;
   --radius-btn: 6px;
+
+  color-scheme: dark;           /* dark scrollbars and form controls */
+}
+
+/* Light theme: script.js sets data-theme="light" on <html>.
+   Only the colors change; every rule below uses these variables. */
+:root[data-theme="light"] {
+  --color-bg: #F6F8FA;
+  --color-surface: #FFFFFF;
+  --color-border: #D0D7DE;
+  --color-divider: #E1E4E8;
+  --color-text: #1F2328;
+  --color-text-soft: #424A53;
+  --color-text-muted: #57606A;
+  --color-accent: #6E40C9;      /* darker purple, readable on white */
+  --color-key: #9A4D00;
+  --color-btn-border: #AFB8C1;
+  --color-text-strong: #000000;
+  --color-accent-hover: #5A32A8;
+  --color-on-accent: #FFFFFF;
+
+  color-scheme: light;
 }
 
 
@@ -52,6 +77,7 @@ body {
   font-family: var(--font-sans);
   font-size: 16px;
   line-height: 1.6;
+  transition: background-color 0.2s, color 0.2s;
 }
 
 a {
@@ -59,7 +85,7 @@ a {
 }
 
 a:hover {
-  color: #FFFFFF;
+  color: var(--color-text-strong);
 }
 
 a:focus-visible {
@@ -102,6 +128,7 @@ h1, h2, h3, p, ul, dl, dd {
 }
 
 .nav-links {
+  margin-left: auto;   /* pushes the links and the toggle to the right */
   list-style: none;
   padding: 0;
   display: flex;
@@ -125,6 +152,29 @@ h1, h2, h3, p, ul, dl, dd {
 /* The link for the page you're currently on */
 .nav-links a[aria-current="page"] {
   color: var(--color-accent);
+}
+
+.theme-toggle {
+  min-height: 44px;
+  padding: 0 14px;
+  background: transparent;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-btn);
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: 14px;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s;
+}
+
+.theme-toggle:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
 }
 
 
@@ -197,12 +247,12 @@ h1, h2, h3, p, ul, dl, dd {
 
 .btn-primary {
   background: var(--color-accent);
-  color: var(--color-bg);
+  color: var(--color-on-accent);
 }
 
 .btn-primary:hover {
-  background: #DDD0FF;
-  color: var(--color-bg);
+  background: var(--color-accent-hover);
+  color: var(--color-on-accent);
 }
 
 .btn-secondary {
