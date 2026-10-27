@@ -66,3 +66,85 @@
     });
   });
 })();
+
+
+/* ==========================================================
+   Scroll spy
+   Highlights the nav link of the section you're currently
+   reading. Only runs on pages whose nav links point to
+   sections on the same page (#about, #experience, ...).
+   ========================================================== */
+
+(function () {
+  document.addEventListener('DOMContentLoaded', function () {
+    const links = Array.from(document.querySelectorAll('.nav-links a[href^="#"]'));
+    const sections = links
+      .map(function (link) { return document.querySelector(link.getAttribute('href')); })
+      .filter(Boolean);
+
+    if (sections.length === 0) return;   // e.g. projects.html
+
+    // When a nav link is clicked, keep it highlighted until the page stops
+    // scrolling. Otherwise a section near the bottom (like skills) could
+    // never be highlighted, because the page can't scroll it up to the line.
+    let clicked = null;
+    let unlockTimer = null;
+
+    links.forEach(function (link) {
+      link.addEventListener('click', function () {
+        clicked = document.querySelector(link.getAttribute('href'));
+        update();
+      });
+    });
+
+    function update() {
+      const marker = window.innerHeight * 0.35;   // an imaginary line 35% down the screen
+      const atBottom =
+        window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
+
+      // The current section is the last one whose top has passed the line
+      let current = null;
+      sections.forEach(function (section) {
+        if (section.getBoundingClientRect().top <= marker) {
+          current = section;
+        }
+      });
+
+      // The last section is short, so it may never reach the line:
+      // treat "scrolled to the very bottom" as reading it
+      if (atBottom) {
+        current = sections[sections.length - 1];
+      }
+
+      if (clicked) {
+        current = clicked;
+      }
+
+      links.forEach(function (link) {
+        const isActive = current !== null && link.getAttribute('href') === '#' + current.id;
+        link.classList.toggle('is-active', isActive);
+      });
+    }
+
+    // Run update() at most once per frame while scrolling
+    let ticking = false;
+    window.addEventListener('scroll', function () {
+      if (clicked) {
+        // Release the clicked link 150ms after the scrolling stops
+        clearTimeout(unlockTimer);
+        unlockTimer = setTimeout(function () { clicked = null; }, 150);
+        return;
+      }
+      if (!ticking) {
+        window.requestAnimationFrame(function () {
+          update();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
+
+    window.addEventListener('resize', update);
+    update();
+  });
+})();
