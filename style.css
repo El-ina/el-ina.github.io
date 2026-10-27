@@ -573,7 +573,21 @@ h1, h2, h3, p, ul, dl, dd {
 }
 
 
-/* ---------- 14. Small screens ---------- */
+/* ---------- 14. Fade-in on scroll ---------- */
+/* .js-reveal is added to <html> by script.js, so without JavaScript
+   (or with "reduce motion" on) everything is simply visible. */
+
+.js-reveal :is(.status-card, .about-text, .entry, .project-card, .skill-group, .contact-links):not(.reveal-done) {
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.js-reveal :is(.status-card, .about-text, .entry, .project-card, .skill-group, .contact-links):not(.is-visible) {
+  opacity: 0;
+  transform: translateY(16px);
+}
+
+
+/* ---------- 15. Small screens ---------- */
 
 @media (max-width: 600px) {
   .hero {

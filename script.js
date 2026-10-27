@@ -148,3 +148,52 @@
     update();
   });
 })();
+
+
+/* ==========================================================
+   Fade-in on scroll
+   Cards fade and slide up slightly the first time they come
+   into view. Skipped for visitors who turned on "reduce
+   motion" in their system settings, and for old browsers.
+   ========================================================== */
+
+(function () {
+  const supported = 'IntersectionObserver' in window;
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!supported || reduceMotion) return;
+
+  // Added right away, in <head>, so the cards start hidden
+  // and never flash on screen before the animation
+  document.documentElement.classList.add('js-reveal');
+
+  const SELECTOR = '.status-card, .about-text, .entry, .project-card, .skill-group, .contact-links';
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const observer = new IntersectionObserver(function (entries) {
+      let delay = 0;
+
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+
+        const element = entry.target;
+        const myDelay = delay;
+        delay = Math.min(delay + 80, 320);   // cards that appear together come in one after another
+
+        element.style.transitionDelay = myDelay + 'ms';
+        element.classList.add('is-visible');
+        observer.unobserve(element);           // only animate once
+
+        // When the fade is over, hand the element back to its normal
+        // styles so hover effects keep their own speed
+        setTimeout(function () {
+          element.classList.add('reveal-done');
+          element.style.transitionDelay = '';
+        }, 600 + myDelay);
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll(SELECTOR).forEach(function (element) {
+      observer.observe(element);
+    });
+  });
+})();
