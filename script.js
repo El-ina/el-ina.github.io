@@ -43,7 +43,8 @@
     const button = document.querySelector('.theme-toggle');
     if (button) {
       const next = theme === 'light' ? 'dark' : 'light';
-      button.textContent = 'theme: ' + theme;
+      // "theme: " sits in its own span so CSS can hide it on very small screens
+      button.innerHTML = '<span class="theme-label">theme: </span>' + theme;
       button.setAttribute('aria-label', 'Switch to ' + next + ' theme');
     }
   }
@@ -63,6 +64,47 @@
       const next = current === 'light' ? 'dark' : 'light';
       applyTheme(next);
       saveTheme(next);
+    });
+  });
+})();
+
+
+/* ==========================================================
+   Mobile menu
+   On narrow screens the nav links are tucked behind a "menu"
+   button. Without JavaScript they simply stay visible, because
+   the CSS only hides them when <html> has the "has-js" class.
+   ========================================================== */
+
+(function () {
+  document.documentElement.classList.add('has-js');   // runs in <head>, before drawing
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const nav = document.querySelector('.nav');
+    const button = document.querySelector('.menu-toggle');
+    if (!nav || !button) return;   // e.g. the 404 page has no menu
+
+    function setOpen(open) {
+      nav.classList.toggle('is-open', open);
+      button.setAttribute('aria-expanded', String(open));
+      button.textContent = open ? 'close' : 'menu';
+    }
+
+    button.addEventListener('click', function () {
+      setOpen(!nav.classList.contains('is-open'));
+    });
+
+    // Close the menu after choosing a link...
+    nav.querySelectorAll('.nav-links a').forEach(function (link) {
+      link.addEventListener('click', function () { setOpen(false); });
+    });
+
+    // ...or when Escape is pressed
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape' && nav.classList.contains('is-open')) {
+        setOpen(false);
+        button.focus();
+      }
     });
   });
 })();

@@ -180,9 +180,58 @@ h1, h2, h3, p, ul, dl, dd {
   color: var(--color-accent);
 }
 
-.theme-toggle:focus-visible {
+.theme-toggle:focus-visible,
+.menu-toggle:focus-visible {
   outline: 2px solid var(--color-accent);
   outline-offset: 3px;
+}
+
+/* "menu" button: hidden on wide screens, shown below 980px */
+.menu-toggle {
+  display: none;
+  min-height: 44px;
+  padding: 0 14px;
+  background: transparent;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-btn);
+  color: var(--color-text);
+  font-family: var(--font-mono);
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.menu-toggle:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+/* Below 980px the links no longer fit on one row,
+   so they move behind the menu button */
+@media (max-width: 980px) {
+  .has-js .menu-toggle {
+    display: inline-block;
+    margin-left: auto;          /* pushes menu + theme buttons to the right */
+  }
+
+  .has-js .nav-links {
+    display: none;
+    order: 1;                   /* drops below the buttons */
+    flex-basis: 100%;
+    flex-direction: column;
+    gap: 0;
+    margin-left: 0;
+    padding-top: 8px;
+    border-top: 1px solid var(--color-divider);
+  }
+
+  .has-js .nav.is-open .nav-links {
+    display: flex;
+  }
+
+  .has-js .nav-links a {
+    display: block;
+    padding: 12px 4px;          /* tall, easy-to-tap rows */
+  }
 }
 
 
@@ -605,6 +654,13 @@ h1, h2, h3, p, ul, dl, dd {
 
   .skill-label {
     width: 100%;   /* label sits above its chips */
+  }
+}
+
+@media (max-width: 480px) {
+  /* Keeps logo + menu + theme buttons on one row on phones */
+  .theme-label {
+    display: none;
   }
 
   .page-intro {
