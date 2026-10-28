@@ -239,3 +239,127 @@
     });
   });
 })();
+
+
+/* ==========================================================
+   Skill filter
+   Roles, talks and projects list their skills in a
+   data-skills="react, typescript, ..." attribute.
+   - index.html: skill chips that appear in some data-skills
+     become buttons. Clicking one highlights the matching
+     entries and dims the rest.
+   - projects.html?skill=React: highlights matching projects.
+   ========================================================== */
+
+(function () {
+  function normalize(text) {
+    return text.trim().toLowerCase();
+  }
+
+  function skillsOf(element) {
+    return (element.getAttribute('data-skills') || '')
+      .split(',')
+      .map(normalize)
+      .filter(Boolean);
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const items = Array.from(document.querySelectorAll('[data-skills]'));
+    const panel = document.querySelector('.skill-filter');
+    if (items.length === 0 || !panel) return;
+
+    const main = document.querySelector('main');
+    const command = panel.querySelector('.skill-filter-command');
+    const jumpButton = panel.querySelector('.skill-filter-jump');
+    const projectsLink = panel.querySelector('.skill-filter-projects');
+    const clearButton = panel.querySelector('.skill-filter-clear');
+    const onProjectsPage = document.querySelector('.project-grid') !== null;
+
+    // Every skill used by at least one item
+    const knownSkills = new Set();
+    items.forEach(function (item) {
+      skillsOf(item).forEach(function (skill) { knownSkills.add(skill); });
+    });
+
+    let matches = [];
+
+    // Highlight the items that use `label` (or clear everything when it's null)
+    function applyFilter(label) {
+      const skill = label === null ? null : normalize(label);
+
+      matches = items.filter(function (item) {
+        const isMatch = skill !== null && skillsOf(item).includes(skill);
+        item.classList.toggle('is-match', isMatch);
+        return isMatch;
+      });
+
+      main.classList.toggle('is-filtering', skill !== null);
+      panel.hidden = skill === null;
+
+      document.querySelectorAll('.chip-button').forEach(function (chip) {
+        chip.setAttribute('aria-pressed', String(normalize(chip.textContent) === skill));
+      });
+
+      if (skill === null) return;
+
+      // Build the terminal-style result line with DOM methods (no innerHTML),
+      // because on projects.html the label comes from the URL
+      const count = matches.length;
+      const result = document.createElement('span');
+      result.className = 'skill-filter-count';
+      result.textContent = count + (count === 1 ? ' match' : ' matches');
+
+      command.textContent = onProjectsPage
+        ? '$ ls ~/projects | grep "' + label + '"  → '
+        : '$ grep -r "' + label + '" ./career  → ';
+      command.appendChild(result);
+
+      if (jumpButton) jumpButton.hidden = count === 0;
+      if (projectsLink) projectsLink.href = 'projects.html?skill=' + encodeURIComponent(label);
+    }
+
+    // index.html: turn matching chips into buttons
+    let activeLabel = null;
+    document.querySelectorAll('.skill-group .chip').forEach(function (chip) {
+      if (!knownSkills.has(normalize(chip.textContent))) return;   // e.g. Tailwind CSS: nothing tagged yet
+
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'chip chip-button';
+      button.textContent = chip.textContent;
+      button.setAttribute('aria-pressed', 'false');
+
+      button.addEventListener('click', function () {
+        activeLabel = activeLabel === button.textContent ? null : button.textContent;
+        applyFilter(activeLabel);
+      });
+
+      chip.replaceWith(button);
+    });
+
+    const hint = document.querySelector('.skill-hint');
+    if (hint && document.querySelector('.chip-button')) hint.hidden = false;
+
+    if (jumpButton) {
+      jumpButton.addEventListener('click', function () {
+        if (matches.length > 0) {
+          matches[0].scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      });
+    }
+
+    clearButton.addEventListener('click', function () {
+      activeLabel = null;
+      applyFilter(null);
+      if (onProjectsPage) {
+        history.replaceState(null, '', 'projects.html');   // drop ?skill= from the address
+      }
+    });
+
+    // projects.html?skill=React
+    const fromUrl = new URLSearchParams(window.location.search).get('skill');
+    if (onProjectsPage && fromUrl) {
+      applyFilter(fromUrl);
+    }
+  });
+})();

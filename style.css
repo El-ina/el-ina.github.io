@@ -324,6 +324,9 @@ h1, h2, h3, p, ul, dl, dd {
 
 .btn-outline {
   padding: 0 16px;
+  background: transparent;      /* needed when .btn-outline is a <button> */
+  color: var(--color-text);
+  cursor: pointer;
   border: 1px solid var(--color-border);
   font-family: var(--font-mono);
   font-size: 14px;
@@ -636,7 +639,97 @@ h1, h2, h3, p, ul, dl, dd {
 }
 
 
-/* ---------- 15. Small screens ---------- */
+/* ---------- 15. Skill filter ---------- */
+
+/* Skill chips that script.js turned into buttons */
+.chip-button {
+  min-height: 36px;
+  background: transparent;
+  color: var(--color-text);
+  font-family: inherit;
+  cursor: pointer;
+  transition: background-color 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.chip-button:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.chip-button[aria-pressed="true"] {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-on-accent);
+}
+
+.chip-button:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+.skill-hint {
+  margin-top: 24px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--color-text-muted);
+}
+
+/* The result panel: "$ grep -r "React" ./career → 4 matches" */
+.skill-filter {
+  margin-top: 16px;
+  padding: 16px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  font-family: var(--font-mono);
+  font-size: 14px;
+}
+
+/* [hidden] must win over display: flex above */
+.skill-filter[hidden],
+.skill-filter-actions [hidden] {
+  display: none;
+}
+
+.skill-filter-top {
+  margin: 0 0 24px;
+}
+
+.skill-filter-command {
+  color: var(--color-text-soft);
+  overflow-wrap: anywhere;
+}
+
+.skill-filter-count {
+  color: var(--color-accent);
+}
+
+.skill-filter-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* While filtering: matches get an accent border, the rest fade back */
+.is-filtering :is(.entry, .project-card) {
+  transition: opacity 0.2s, border-color 0.2s;
+}
+
+.is-filtering :is(.entry, .project-card):not(.is-match) {
+  opacity: 0.35;
+}
+
+.is-filtering :is(.entry, .project-card).is-match {
+  border-color: var(--color-accent);
+}
+
+
+/* ---------- 16. Small screens ---------- */
 
 @media (max-width: 600px) {
   .hero {

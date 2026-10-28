@@ -95,7 +95,7 @@
       <p class="section-command">$ git log --career</p>
 
       <div class="entry-list">
-        <article class="entry">
+        <article class="entry" data-skills="react, typescript, javascript, c#, asp.net mvc, datadog, jira, n8n, git">
           <p class="entry-commit">commit 9e4c2a1 <span class="accent">(HEAD -&gt; main)</span></p>
           <p class="entry-date">Date: Sept 2026 – present · Sofia, Bulgaria</p>
           <h3 class="entry-title">Associate Software Engineer (Front-End)</h3>
@@ -108,7 +108,7 @@
           </ul>
         </article>
 
-        <article class="entry">
+        <article class="entry" data-skills="react, typescript, javascript, c#, asp.net mvc, datadog, jira, n8n, git">
           <p class="entry-commit">commit 5b17f08</p>
           <p class="entry-date">Date: June 2026 – Aug 2026 · Sofia, Bulgaria</p>
           <h3 class="entry-title">Software Engineering Intern (Front-End)</h3>
@@ -123,7 +123,7 @@
           </ul>
         </article>
 
-        <article class="entry">
+        <article class="entry" data-skills="react, typescript, javascript, html &amp; css, git">
           <p class="entry-commit">commit 2d8a6e3</p>
           <p class="entry-date">Date: Sept 2025 – May 2026 · Blagoevgrad, Bulgaria</p>
           <h3 class="entry-title">Development Team Member</h3>
@@ -134,7 +134,7 @@
           </ul>
         </article>
 
-        <article class="entry">
+        <article class="entry" data-skills="react, typescript, javascript, firebase">
           <p class="entry-commit">commit 7c41b9f</p>
           <p class="entry-date">Date: Mar 2025 – June 2025 · Pleven, Bulgaria</p>
           <h3 class="entry-title">Software Engineering Graduate</h3>
@@ -145,7 +145,7 @@
           </ul>
         </article>
 
-        <article class="entry">
+        <article class="entry" data-skills="python, sql, postgresql, html &amp; css, javascript">
           <p class="entry-commit">commit e08d3a5</p>
           <p class="entry-date">Date: Jan 2022 – Apr 2025 · Remote</p>
           <h3 class="entry-title">Programming Student</h3>
@@ -156,7 +156,7 @@
           </ul>
         </article>
 
-        <article class="entry">
+        <article class="entry" data-skills="">
           <p class="entry-commit">commit 3fa61c2</p>
           <p class="entry-date">Date: Sept 2025 – May 2026 · Blagoevgrad, Bulgaria</p>
           <h3 class="entry-title">Marketing Department Member</h3>
@@ -166,7 +166,7 @@
           </ul>
         </article>
 
-        <article class="entry">
+        <article class="entry" data-skills="">
           <p class="entry-commit">commit b72e04d</p>
           <p class="entry-date">Date: Sept 2018 – June 2025 · Pleven, Bulgaria</p>
           <h3 class="entry-title">Contributing Writer &amp; Editor</h3>
@@ -184,7 +184,7 @@
       <p class="section-command">$ cat education.md</p>
 
       <div class="entry-list">
-        <article class="entry">
+        <article class="entry" data-skills="">
           <p class="entry-date">Sept 2025 – 2029 (expected) · Blagoevgrad, Bulgaria</p>
           <h3 class="entry-title">BA, Computer Science &amp; Business Administration</h3>
           <p class="entry-org">American University in Bulgaria</p>
@@ -196,7 +196,7 @@
           </ul>
         </article>
 
-        <article class="entry">
+        <article class="entry" data-skills="">
           <p class="entry-date">Sept 2018 – May 2025 · Pleven, Bulgaria</p>
           <h3 class="entry-title">Software and Hardware Sciences Profile</h3>
           <p class="entry-org">Ivan Vazov High School</p>
@@ -214,7 +214,7 @@
       <p class="section-command">$ ls ./talks</p>
 
       <div class="entry-list">
-        <article class="entry">
+        <article class="entry" data-skills="python, make.com">
           <p class="entry-date">Jan 2026 · Vienna, Austria</p>
           <h3 class="entry-title">Vienna One World Vision Conference</h3>
           <p class="entry-text">
@@ -224,7 +224,7 @@
           </p>
         </article>
 
-        <article class="entry">
+        <article class="entry" data-skills="">
           <p class="entry-date">June 2024</p>
           <h3 class="entry-title">Physics and the World of Technology Youth Scientific Session</h3>
           <p class="entry-text">
@@ -233,7 +233,7 @@
           </p>
         </article>
 
-        <article class="entry">
+        <article class="entry" data-skills="">
           <p class="entry-date">Apr 2023</p>
           <h3 class="entry-title">DiSTARS Communication &amp; Teacher Training Event</h3>
           <p class="entry-text">Created a story about space exploration as part of a 4-member team.</p>
@@ -293,6 +293,17 @@
           </dd>
         </div>
       </dl>
+
+      <!-- Shown by script.js: click a skill to see where it was used -->
+      <p class="skill-hint" hidden>tip: click a skill to see where I've used it</p>
+      <div class="skill-filter" hidden>
+        <p class="skill-filter-command" aria-live="polite"></p>
+        <div class="skill-filter-actions">
+          <button type="button" class="btn btn-outline skill-filter-jump">view matches</button>
+          <a href="projects.html" class="btn btn-outline skill-filter-projects">projects</a>
+          <button type="button" class="btn btn-outline skill-filter-clear">clear</button>
+        </div>
+      </div>
     </section>
 
     <section id="contact" class="section section-contact">
